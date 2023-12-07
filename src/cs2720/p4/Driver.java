@@ -29,29 +29,35 @@ public class Driver {
             switch (choice) {
                 case 's':
                     sorting.selectionSort(array);
-                    break;
+		    System.out.println("#Selection-sort comparisons: " + sorting.getNumComparisons());
+		    break;
                 case 'm':
                     sorting.mergeSort(array);
-                    break;
+		    System.out.println("#Merge-sort comparisons: " + sorting.getNumComparisons());
+		    break;
                 case 'h':
                     sorting.heapSort(array);
-                    break;
+		    System.out.println("#Heap-sort comparisons: " + sorting.getNumComparisons());
+		    break;
                 case 'q':
                     sorting.quickSortFP(array);
+		    System.out.println("#Quick-sort-fp comparisons: " + sorting.getNumComparisons());
                     break;
                 case 'r':
                     sorting.quickSortRP(array);
+		    System.out.println("#Quick-sort-rp comparisons: " + sorting.getNumComparisons());
                     break;
                 default:
                     System.out.println("Invalid choice. Exiting.");
                     System.exit(1);
             }
-
+	    /*
             // Print the sorted array
             System.out.println("Sorted array:");
             for (int num : array) {
                 System.out.print(num + " ");
             }
+	    */
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + filename);
         } catch (InputMismatchException e) {

@@ -4,8 +4,15 @@ import java.util.Random;
 
 public class Sorting {
 
+    public long numComparisons;
+
+    public long getNumComparisons() {
+	return this.numComparisons;
+    }
+    
     public void selectionSort(int[] array) {
-        int n = array.length;
+	numComparisons = 0;
+	int n = array.length;
 
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
@@ -13,7 +20,8 @@ public class Sorting {
             for (int j = i + 1; j < n; j++) {
                 if (array[j] < array[minIndex]) {
                     minIndex = j;
-                }
+		    numComparisons += 1;
+		}
             }
 
             int temp = array[minIndex];
@@ -57,9 +65,11 @@ public class Sorting {
             if (leftArray[i] <= rightArray[j]) {
                 array[k] = leftArray[i];
                 i++;
-            } else {
+		numComparisons += 1;
+	    } else {
                 array[k] = rightArray[j];
                 j++;
+		numComparisons += 1;
             }
             k++;
         }
@@ -100,14 +110,17 @@ public class Sorting {
 
         if (left < n && array[left] > array[largest]) {
             largest = left;
+	    numComparisons += 1;
         }
 
         if (right < n && array[right] > array[largest]) {
             largest = right;
+	    numComparisons += 1;
         }
 
         if (largest != i) {
-            int swap = array[i];
+	    numComparisons += 1;
+	    int swap = array[i];
             array[i] = array[largest];
             array[largest] = swap;
 
@@ -134,7 +147,8 @@ public class Sorting {
 
         for (int j = low + 1; j <= high; j++) {
             if (array[j] < pivot) {
-                int temp = array[i];
+		numComparisons += 1;
+		int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
                 i++;
