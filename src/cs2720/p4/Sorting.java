@@ -22,6 +22,7 @@ public class Sorting {
                     minIndex = j;
 		    numComparisons += 1;
 		}
+		numComparisons += 1;
             }
 
             int temp = array[minIndex];
@@ -153,6 +154,7 @@ public class Sorting {
                 array[j] = temp;
                 i++;
             }
+	    numComparisons += 1;
         }
 
         int temp = array[i - 1];
